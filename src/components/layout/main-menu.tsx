@@ -12,6 +12,14 @@ const mainMenuData: IMenu[] = [
       path: "/",
     },
   },
+   {
+    id: "dashBoard",
+    name: "대시보드",
+    icon: <Home className="w-5 h-5" />,
+    link: {
+      path: "/dashBoard/chart",
+    },
+  },
   {
     id: "product",
     name: "상품 관리",
