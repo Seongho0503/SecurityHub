@@ -41,19 +41,19 @@ const StatisticSample = ({ data }: IStatisticSampleProps) => {
           </div>
         </div>
         <div className="p-5 border rounded-lg ">
-          <div>주문</div>
+          <div>고객사</div>
           <div className="flex items-center mt-3">
             <div className="text-2xl font-semibold grow">
-              <CountUp end={data.order.value} separator="," />건
+              <CountUp end={data.order.value} separator="," />개
             </div>
             <div>{renderChangeRate(data.order.rate)}</div>
           </div>
         </div>
         <div className="p-5 border rounded-lg ">
-          <div>매출</div>
+          <div>관리자</div>
           <div className="flex items-center mt-3">
             <div className="text-2xl font-semibold grow">
-              <CountUp end={data.income.value} separator="," />원
+              <CountUp end={data.income.value} separator="," />명
             </div>
             <div>{renderChangeRate(data.income.rate)}</div>
           </div>

@@ -41,12 +41,12 @@ const ProductForm = ({ id, initialValues }: IProductFormProps) => {
       {contextHolder}
       <DefaultForm<IProductFormValue> form={form} initialValues={initialValues} onFinish={handleFinish}>
         <FormSection title="기본정보" description="상품 기본 정보를 입력해주세요">
-          <FormGroup title="판매상태*">
+          <FormGroup title="서비스 타입*">
             <Form.Item name="status" rules={[{ required: true, message: "필수값입니다" }]}>
               <Radio.Group>
-                <Radio value="SALE">판매중</Radio>
-                <Radio value="SOLDOUT">재고없음</Radio>
-                <Radio value="NOTSALE">판매중지</Radio>
+                <Radio value="SALE">EKS</Radio>
+                <Radio value="SOLDOUT">Lambda</Radio>
+                <Radio value="NOTSALE">VPC_Flow</Radio>
               </Radio.Group>
             </Form.Item>
           </FormGroup>

@@ -11,9 +11,9 @@ import React, { useCallback } from "react";
 
 const statusOptions = [
   { label: "전체", value: "ALL" },
-  { label: "판매중", value: "SALE" },
-  { label: "품절", value: "SOLDOUT" },
-  { label: "판매중단", value: "NOTSALE" },
+  { label: "EKS", value: "SALE" },
+  { label: "VFC_Flow", value: "SOLDOUT" },
+  { label: "Lambda", value: "NOTSALE" },
 ];
 
 const ProductSearch = () => {
@@ -45,7 +45,7 @@ const ProductSearch = () => {
           </Form.Item>
         </FieldInline>
         <div>
-          <Form.Item name="status" label="판매상태">
+          <Form.Item name="status" label="서비스타입">
             <Checkbox.Group options={statusOptions} />
           </Form.Item>
         </div>
@@ -53,7 +53,7 @@ const ProductSearch = () => {
           <FieldInline>
             <Form.Item label="검색조건" name="searchType" initialValue="productName">
               <Select dropdownMatchSelectWidth={false}>
-                <Select.Option value="productName">상품명</Select.Option>
+                <Select.Option value="productName">로그명</Select.Option>
                 <Select.Option value="brandName">브랜드명</Select.Option>
               </Select>
             </Form.Item>
@@ -63,7 +63,7 @@ const ProductSearch = () => {
           </FieldInline>
         </div>
         <div>
-          <Form.Item name="productCode" label="상품번호">
+          <Form.Item name="productCode" label="Account ID">
             <Input.TextArea placeholder="복수입력시 쉼표(,) 또는 엔터(Enter)로 구분해주세요" />
           </Form.Item>
         </div>

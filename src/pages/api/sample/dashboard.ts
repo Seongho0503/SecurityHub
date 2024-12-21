@@ -28,16 +28,16 @@ const getRandomRate = (min: number, max: number) => {
 export default function handler(_req: NextApiRequest, res: NextApiResponse<Data>) {
   res.status(200).json({
     visitor: {
-      value: getRandomInt(1000, 10000),
-      rate: getRandomRate(-10, 50),
+      value: 23,
+      rate: getRandomRate(-0, 20),
     },
     order: {
-      value: getRandomInt(10, 1000),
-      rate: getRandomRate(-10, 50),
+      value: 1,
+      rate: getRandomRate(1, 1),
     },
     income: {
-      value: getRandomInt(1000000, 10000000),
-      rate: getRandomRate(-10, 50),
+      value: 1,
+      rate: getRandomRate(1, 1),
     },
   });
 }

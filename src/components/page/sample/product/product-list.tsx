@@ -71,12 +71,12 @@ const ProductList = () => {
       },
     },
     {
-      title: "상품코드",
+      title: "    Account ID   ",
       dataIndex: "code",
-      width: 100,
+      width: 120,
     },
     {
-      title: "상품명",
+      title: "로그명",
       dataIndex: "name",
       render: (value: string, record: IProduct) => {
         return (
@@ -88,19 +88,22 @@ const ProductList = () => {
       },
     },
     {
-      title: "금액",
+      title: "로그 크기",
       dataIndex: "price",
       align: "center",
       width: 100,
-      render: (value: number) => {
-        return <p>{numeral(value).format("0,0")}원</p>;
+      render: (_value: number, _record: IProduct, index: number) => {
+        const logSizes = [
+          "143.2KB",
+          "123.7KB",
+          "133.5KB",
+          "122.2KB",
+          "142.8KB",
+          "150.9KB",
+        ];
+        // 인덱스에 맞는 로그 크기 반환 (index % logSizes.length를 사용하여 순환 처리)
+        return <p>{logSizes[index % logSizes.length]}</p>;
       },
-    },
-    {
-      title: "판매상태",
-      dataIndex: "status",
-      align: "center",
-      width: 100,
     },
     {
       title: "생성일시",
@@ -152,7 +155,7 @@ const ProductList = () => {
             엑셀 다운로드
           </Button>
           <Button type="primary" onClick={() => router.push("/sample/product/new")}>
-            상품등록
+            로그등록
           </Button>
         </div>
       </DefaultTableBtn>
