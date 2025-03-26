@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.16.1",
+    "@aws-sdk/client-ec2": "^3.767.0",
+    "@aws-sdk/credential-providers": "^3.768.0",
     "@uiw/react-codemirror": "^4.21.9",
     "antd": "^5.7.3",
     "chart.js": "^4.4.7",

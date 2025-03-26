@@ -21,6 +21,14 @@ const mainMenuData: IMenu[] = [
     },
   },
   {
+    id: "management",
+    name: "자원관리",
+    icon: <Home className="w-5 h-5" />,
+    link: {
+      path: "/management/management",
+    },
+  },
+  {
     id: "product",
     name: "로그 관리",
     icon: <Package2 className="w-5 h-5" />,
