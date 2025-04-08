@@ -7,7 +7,7 @@ import { Button, Checkbox, Form, Input, Select } from "antd";
 import { useForm } from "antd/lib/form/Form";
 import { Search } from "lucide-react";
 import { useRouter } from "next/router";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const statusOptions = [
   { label: "전체", value: "ALL" },
@@ -19,16 +19,42 @@ const statusOptions = [
 const InsatanceSearch = () => {
   const [form] = useForm();
   const router = useRouter();
+  const [searchResults, setSearchResults] = useState([]);
 
+  // 검색 실행 함수
   const handleFinish = useCallback(
     (formValue: IProductFormValue) => {
-      router.push({
-        pathname: router.pathname,
-        query: { ...router.query, ...formValue },
-      });
+      router.push(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, ...formValue },
+        },
+        undefined,
+        { shallow: true } // 새로고침 없이 쿼리 변경
+      );
     },
     [router]
   );
+
+  // URL 변경될 때 검색 요청 실행
+  useEffect(() => {
+    const fetchSearchResults = async () => {
+      const { searchText, searchType, status } = router.query;
+      if (!searchText) return; // 검색어 없으면 실행 X
+
+      try {
+        const response = await fetch(
+          `/api/search?searchText=${searchText}&searchType=${searchType}&status=${status}`
+        );
+        const data = await response.json();
+        setSearchResults(data);
+      } catch (error) {
+        console.error("검색 중 오류 발생:", error);
+      }
+    };
+
+    fetchSearchResults();
+  }, [router.query]);
 
   return (
     <DefaultSearchForm form={form} onFinish={handleFinish}>
@@ -72,10 +98,22 @@ const InsatanceSearch = () => {
         <Button htmlType="submit" className="btn-with-icon" icon={<Search />}>
           검색
         </Button>
-        <Button htmlType="submit" className="btn-with-icon" onClick={() => form.resetFields()}>
+        <Button className="btn-with-icon" onClick={() => form.resetFields()}>
           초기화
         </Button>
       </div>
+
+      {/* 검색 결과 표시 */}
+      <div className="mt-4">
+  {searchResults.length > 0 ? (
+    <ul>
+      
+    </ul>
+  ) : (
+    <p>검색 결과가 없습니다.</p>
+  )}
+</div>
+
     </DefaultSearchForm>
   );
 };

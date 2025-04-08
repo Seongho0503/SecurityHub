@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "MySQL" // 사용 중인 DBMS 
+  url      = env("DATABASE_URL")
+}
+
+model EC2Instance {
+  id           String  @id @default(uuid())
+  instanceId   String  @unique
+  imageId      String
+  stateName    String
+  launchTime   DateTime
+  keyName      String
+  ownerId      String
+  createdAt    DateTime @default(now())
+}
+
+# npx prisma generate 
