@@ -3,10 +3,10 @@ import mysql from 'mysql2/promise';
 
 async function main() {
   const connection = await mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'study',
-    password: 'study123!',
-    database: 'aws_db',
+    host: 'jdbc:mysql://cmk-mysql.ctkjycl1blgv.ap-northeast-2.rds.amazonaws.com:3306',
+    user: 'admin',
+    password: 'Admin2025!',
+    database: 'securityHub',
   });
 
   try {
