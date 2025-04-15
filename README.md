@@ -2,7 +2,8 @@
 
 ### 1. Git-flow 전략
 
-![Untitled](./public/images/git-flow.png)  
+![image](https://github.com/user-attachments/assets/503352cb-eeb9-4194-81d5-82193c3ccd0e)
+
 \*main 대신 develop을 default 브랜치로 사용 (main은 릴리즈용)
 
 ```bash
